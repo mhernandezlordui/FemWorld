@@ -1,0 +1,53 @@
+const data = [
+    { name: "A", value: 10 },
+    { name: "E", value: 20 }
+];
+
+// Set up dimensions
+const width = 1200;
+const height = 1200;
+const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+const chartWidth = width - margin.left - margin.right;
+const chartHeight = height - margin.top - margin.bottom;
+
+// Create SVG container
+const svg = d3.select("#container")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+const chart = svg.append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+// Create scales
+const xScale = d3.scaleBand()
+    .domain(data.map(d => d.name))
+    .range([0, chartWidth])
+    .padding(0.1);
+
+const yScale = d3.scaleLinear()
+    .domain([0, d3.max(data, d => d.value)])
+    .range([chartHeight, 0]);
+
+// Create bars
+chart.selectAll(".bar")
+    .data(data)
+    .enter().append("rect")
+    .attr("class", "bar")
+    .attr("x", d => xScale(d.name))
+    .attr("y", d => yScale(d.value))
+    .attr("width", xScale.bandwidth())
+    .attr("height", d => chartHeight - yScale(d.value));
+
+// Create axes
+const xAxis = d3.axisBottom(xScale);
+const yAxis = d3.axisLeft(yScale);
+
+chart.append("g")
+    .attr("class", "x axis")
+    .attr("transform", `translate(0, ${chartHeight})`)
+    .call(xAxis);
+
+chart.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
