@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Femworld</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v4.js"></script>
+    <script src="https://d3js.org/topojson.v3.js"></script>  
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  
+   
+    <script src="js/map.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/script.js"></script>
+
 </head>
 <body>    
     <header class="header">
@@ -19,13 +31,13 @@
             <a href="index.html" class="active">Home</a>
             <a href="statistics.html" >Statistics</a>
             <a href="country.html">Country Profile</a>            
-            <a href="#model">Model</a>            
+         
         </div>
         <!-- D3.js will render the visualization here -->
     </div>
     <main id = "maindoc">
         <section id = "Home">        
-        <h1>Feminicide</h1>
+        <h1 class="h1">Feminicide</h1>
         <p>Feminicide, also known as femicide, is the intentional killing of women because they are women. 
         It is a hate crime rooted in gender inequality, discrimination, and violence against women.
         This term highlights the systemic nature of these killings, emphasizing that they are not 
@@ -77,10 +89,10 @@
         </ul> 
         </section> 
         <section id="Statistics">
-
         </section>
+        <section id="Country Profile"></section>
     </main>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="js/script.js"></script>
+ 
+
 </body>
 </html>

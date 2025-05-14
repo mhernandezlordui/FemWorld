@@ -189,70 +189,29 @@ button:active {
   margin: 5px; 
   box-sizing: border-box; 
   width: 400px; 
-  height: 400px;
+  height: 350px;
 }
 .svgContainer1 {
-
-  width: 400px; 
+  width: 400px;
   padding-bottom: 10px;
   padding-left: 20px;
   border: 1px solid #bb3636;
   display: none; /* Oculto inicialmente */
 
 }
-.svgContainer2 {
-
-  width: 400px;
-  padding-bottom: 2px;
-  padding-left: 1px;
-  border: 1px solid #bb3636;
-  display: none; /*Oculto inicialmente */
-}
-
 .radial-bar {
   fill: steelblue;
 }
-
 .label {
   font-size: 0.8em;
-  /*text-anchor: middle;*/
+  text-anchor: middle;
 }
 
-.radial-area { 
-fill: rgba(230, 173, 230, 0.945); 
-opacity: 0.7;
-} /* Style the filled area */
 
-.radial-area2 { 
 
-  fill: rgba(139, 138, 230, 0.945); 
-  opacity: 0.4;
-  } /* Style the filled area */
 
-.inner-radial-area {
-fill: rgba(255, 192, 203, 0.5); 
-} 
 
-.svgContainer3 {
-  border: 1px solid #ccc;
-  margin-top: 20px;
-  padding: 10px;
-}
 
-.infobox {
-  position: relative;
-  top: 10px;
-  right: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  padding: 10px;
-  box-shadow: 2px 2px 5px #888888;
-}
-
-.bar {
-  fill: steelblue;
-  
-}
 
 
 

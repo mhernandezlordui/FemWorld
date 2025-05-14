@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://127.0.0.1:5501/country.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Femworld</title>
+    <link rel="stylesheet" href="./Femworld_files/style.css">
+
+    <script src="./Femworld_files/d3.v7.min.js"></script>
+    <script src="./Femworld_files/d3-geo-projection.v4.js"></script>
+    <script src="./Femworld_files/topojson.v3.js"></script>  
+
+
+    <script src="./Femworld_files/map.js"></script>
+    <script src="./Femworld_files/profile.js"></script>
+    <script src="./Femworld_files/script.js"></script>
+    
+</head>
+<body>    
+    <header class="header">
+        <img src="./Femworld_files/logo.png" alt="Logo" class="logo">  
+        <article class="created"> 
+            Created by Monica Hernandez, UMASS
+        </article>              
+    </header>
+    <div id="container_topnav">     
+        <div class="topnav" id="myTopnav">
+            <a href="http://127.0.0.1:5501/index.html" class="active">Home</a>
+            <a href="http://127.0.0.1:5501/statistics.html">Statistics</a>
+            <a href="http://127.0.0.1:5501/country.html">Country Profile</a>            
+            <a href="http://127.0.0.1:5501/country.html#model">Model</a>            
+        </div>
+        <!-- D3.js will render the visualization here -->
+        <p style="text-align: center"> <strong>Background information:</strong>  We aim to investigate, by visualizing the data, the potential correlation between GDP
+             and the educational level of the victim's living area.</p>
+
+        <div class="flag-container">      
+            <div id="france">
+                <div><img src="./Femworld_files/france.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+
+            <div id="mexico">
+                <div><img src="./Femworld_files/mexico.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+
+            <div id="germany">
+                <div><img src="./Femworld_files/germany.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+
+            <div id="colombia">
+                <div><img src="./Femworld_files/colombia.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+
+            <div id="sweden">
+                <div><img src="./Femworld_files/sweden.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="button1">France</button>               
+            <button id="button2">Mexico</button>  
+            <button id="button3">Germany</button>
+            <button id="button4">Colombia</button>
+            <button id="button5">Sweden</button>
+        </div>
+
+        <div id="button1">
+            <div class="profile-container">
+                <div id="svgContainer1" class="svg-container">Femicide between 2016 - 2022
+                    <svg id="femicideYearBar" style="padding-left: 40px; padding-top: 10px; padding-bottom: 25px">
+                    </svg>  
+                </div>       
+                <div id="svgContainer2" class="svg-container">Correlation Femicide-GDP
+                    <svg id="radialChart" width="250" height="250">
+                    <g transform="translate(160, 160)"><rect class="radial-bar" x="0" y="-99.71428571428571" width="0.8975979010256552" height="99.71428571428571" transform="rotate(-64.28571428571428)"></rect><rect class="radial-bar" x="0" y="-92.60952380952381" width="0.8975979010256552" height="92.60952380952381" transform="rotate(-12.857142857142847)"></rect><rect class="radial-bar" x="0" y="-71.6047619047619" width="0.8975979010256552" height="71.6047619047619" transform="rotate(38.571428571428555)"></rect><rect class="radial-bar" x="0" y="-61.576190476190476" width="0.8975979010256552" height="61.576190476190476" transform="rotate(90)"></rect><rect class="radial-bar" x="0" y="-49.67142857142857" width="0.8975979010256552" height="49.67142857142857" transform="rotate(141.42857142857142)"></rect><rect class="radial-bar" x="0" y="-42.423809523809524" width="0.8975979010256552" height="42.423809523809524" transform="rotate(192.85714285714283)"></rect><rect class="radial-bar" x="0" y="-38.142857142857146" width="0.8975979010256552" height="38.142857142857146" transform="rotate(244.28571428571428)"></rect><text class="label" x="0" y="-109.71428571428571" transform="rotate(-64.28571428571428)" style="text-anchor: middle;">2022</text><text class="label" x="0" y="-102.60952380952381" transform="rotate(-12.857142857142847)" style="text-anchor: middle;">2021</text><text class="label" x="0" y="-81.6047619047619" transform="rotate(38.571428571428555)" style="text-anchor: middle;">2020</text><text class="label" x="0" y="-71.57619047619048" transform="rotate(90)" style="text-anchor: middle;">2019</text><text class="label" x="0" y="-59.67142857142857" transform="rotate(141.42857142857142)" style="text-anchor: middle;">2018</text><text class="label" x="0" y="-52.423809523809524" transform="rotate(192.85714285714283)" style="text-anchor: middle;">2017</text><text class="label" x="0" y="-48.142857142857146" transform="rotate(244.28571428571428)" style="text-anchor: middle;">2016</text></g></svg> 
+                </div>  
+                <div id="svgContainer3" class="svg-container">Correlation Femicide-Education Level
+                    <svg id="educaChart">
+                    </svg> 
+                </div>
+            </div>
+
+        </div>
+
+        
+        
+      
+    
+    </div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

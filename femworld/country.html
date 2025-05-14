@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Femworld</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v4.js"></script>
+    <script src="https://d3js.org/topojson.v3.js"></script>  
+
+
+    <script src="js/map.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/script.js"></script>
     
 </head>
 <body>    
@@ -19,12 +28,78 @@
             <a href="index.html" class="active">Home</a>
             <a href="statistics.html" >Statistics</a>
             <a href="country.html">Country Profile</a>            
-            <a href="#model">Model</a>            
+           
         </div>
         <!-- D3.js will render the visualization here -->
+        <p style="text-align: center"> <strong>Background information:</strong> 
+            <div>The visualization investigates the potential
+                correlation between GDP and femicide in these 5 countries that showed the highest number of cases within the
+                data's study timeframe, specifically the period between 2016 and 2022. The Pearson coefficient is used to establish
+                this correlation, and a radial axis is used graphically to represent it. Similarly, femicide statistics per country
+                are visualized within this same timeframe and with the available data.
+            </div>   
+        </p>
+
+        <div class="flag-container">      
+            <div id="france" >
+                <div><img src="images/france.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+
+            <div id="mexico" >
+                <div><img src="images/mexico.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+
+            <div id="germany">
+                <div><img src="images/germany.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+
+            <div id="colombia">
+                <div><img src="images/colombia.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+
+            <div id="sweden">
+                <div><img src="images/sweden.png" alt="Bandera 1" style="width: 60px; height: 20;"></div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="button1">France</button>               
+            <button id="button2">Mexico</button>  
+            <button id="button3">Germany</button>
+            <button id="button4">Colombia</button>
+            <button id="button5">Sweden</button>
+        </div>
+
+        <div id=button1>
+            <div class="profile-container">
+                <div id="svgContainer1" class="svg-container" >Femicide in the chosen country between 2016 - 2022 
+                    <svg id="femicideYearBar" class="femicideBar"></svg>  
+                </div>       
+                <div id="svgContainer2" class="svg-container">Radial Correlation  Femicide-GDP
+                    <svg id="radialChart" style="padding-left: 20px; padding-top: 8px; padding-bottom: 20px">                                                
+                    </svg> 
+                    <div style="float: right; font-size: 0.6em; width: 200px; height: 170px; border: 1px solid black;">
+                        Calculating the Pearson coefficient will yield only a moderate correlation for the country
+                        of France. In this section, you will only see graphically the moderate correlation between 
+                        France's GDP and its femicide statistics.</div>
+                </div>  
+                <div id="svgContainer3" class="svg-container">Pearson correlation coefficient
+                 <p>
+                    <button  id="button6" style="position: relative; bottom: 100; left: 100">Calculate Pearson Coefficient </button>
+                 </p>       
+                 <p>
+
+                 </p>                                  
+                </div>
+            </div>
+
+        </div>
+
+        
+        
+      
+    
     </div>
-    <p>Statistics Page using country with visualizations</p>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="js/script.js"></script>
+
 </body>
 </html>

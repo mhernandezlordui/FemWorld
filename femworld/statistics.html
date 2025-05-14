@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Femworld</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v4.js"></script>
+    <script src="https://d3js.org/topojson.v3.js"></script>  
+
+
+
+    <script src="js/map.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/script.js"></script>
+</head>
     
 </head>
 <body>    
@@ -19,12 +31,75 @@
             <a href="index.html" class="active">Home</a>
             <a href="statistics.html" >Statistics</a>
             <a href="country.html">Country Profile</a>            
-            <a href="#model">Model</a>            
+          
         </div>
         <!-- D3.js will render the visualization here -->
+    </div>    
+    <div style="display: flex; width: 1776px; height: 600px; border: 2px solid #ccc; margin-left: 20px;">
+        <div style="flex: 0.12; background-color: rgb(255, 255, 255); padding: 15px; font-size: 12px; padding-top: 100px;">
+            <h2 class="h2">Relationships between the murderer and the victim </h2 >
+            This visualization focuses on femicides within the domestic sphere (by intimate partners or family are perpetrator), 
+            This visualization highlights femicides committed within domestic settings (by intimate partners or family members), 
+            the most common type of gender-related killing. It also includes two additional categories: cases where the perpetrator
+            knew the victim but lacked a close familial or intimate relationship, and instances where the perpetrator did not know
+            the victim.
+        </div>
+        <div style="flex: 0.58; background-color: rgb(255, 255, 255); padding: 15px;"> 
+            <h2>Femicides in the world </h2>         
+            <svg id="map">
+                <g id="graticules"></g>
+                <g id="countries"></g>
+            </svg>  
+            <div class="info-box" style="display: none;"></div>  
+    
+        </div>
+        <div style="flex: 0.3; background-color: rgb(255, 255, 255); padding: 15px; font-size: 12px; padding-top: 200px;">
+            <div class="toolbox" id="toolbox">
+                <span>                 
+                    <label>Female Homicide by</label>
+                    <select id="dataset_relation">
+                      <option selected value="Intimate partner or family member">Intimate partner or family member</option>
+                      <option value="Other Perpetrator known to the victim">Other Perpetrator known to the victim</option>
+                      <option value="Perpetrator unknown to the victim">Perpetrator unknown to the victim</option>
+                </select>
+
+                </span>
+                <span>
+                    <p>
+                        <label>Year</label>
+                        <select id="year">               
+                        <option selected value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </p>                
+                </select>
+                </span>
+            </div>    
+            <div class="chart">
+                <div style="margin-left: 50px; padding-left: 10px;">
+                    <h2> 5 Countries with the largest number of femicides between 2013 - 2022</h2>
+                </div>
+                
+                <div style="padding-left: 75px;">
+                    <svg id="barChart"></svg>
+                </div>
+
+
+              </div>    
+        </div>
+
+
+
     </div>
-    <p>Statistics Page with visualizations</p>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="js/script.js"></script>
+
+
+
 </body>
 </html>
